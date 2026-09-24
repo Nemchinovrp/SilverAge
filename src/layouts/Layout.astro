@@ -1,0 +1,9 @@
+---
+import '../styles/global.css';
+interface Props { title?: string; description?: string; }
+const {title = 'Серебряный век — поэзия на рубеже эпох', description = 'Откройте поэтов Серебряного века: голоса, направления и история русской поэзии конца XIX — начала XX века.'} = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+<!doctype html>
+<html lang="ru"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content={description}/><meta name="theme-color" content="#f5f1e9"/><meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:type" content="website"/><link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`}/><title>{title}</title></head>
+<body><a class="skip-link" href="#main">Перейти к содержимому</a><header class="header wrap"><a class="brand" href={base}><span class="brand-symbol">с<span>в</span></span><span>СЕРЕБРЯНЫЙ ВЕК<small>ЛИТЕРАТУРНОЕ СОЗВЕЗДИЕ</small></span></a><nav aria-label="Главная навигация"><a href={`${base}#poets`}>Поэты</a><a href={`${base}#movements`}>Направления</a><a href={`${base}#epoch`}>Об эпохе</a></nav><a class="header-link" href={`${base}#reading`}>Открыть стихотворение <span>↗</span></a></header><slot/><footer class="wrap footer"><a class="footer-name" href={base}>Серебряный век<span>Литература, которая продолжает звучать.</span></a><p>Небольшой путеводитель по большой эпохе.<br/><a href="https://www.culture.ru/s/gid-po-serebryanomu-veku/" target="_blank" rel="noreferrer">Читать больше на Культура.РФ ↗</a></p><a href="#main">Наверх ↑</a></footer></body></html>
